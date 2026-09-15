@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Data Engineer",
+    "description": "Builds and maintains systems that ingest, transform, and store data for analytical use.",
+    "skills": [
+      {"name": "Python", "importance": "Required"},
+      {"name": "SQL", "importance": "Required"},
+      {"name": "Git", "importance": "Required"},
+      {"name": "Linux", "importance": "Recommended"},
+      {"name": "AWS", "importance": "Required"},
+      {"name": "Docker", "importance": "Recommended"},
+      {"name": "Spark", "importance": "Advanced"}
+    ]
+  }
+]

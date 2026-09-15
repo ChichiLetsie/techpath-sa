@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Python for Everybody",
+    "provider": "University of Michigan / Online",
+    "technology": "Python",
+    "level": "Beginner",
+    "cost": 0.0,
+    "currency": "ZAR",
+    "duration": "6 weeks",
+    "delivery_mode": "Online",
+    "url": "https://example.com/courses/python",
+    "source": "Coursera"
+  },
+  {
+    "name": "AWS Certified Cloud Practitioner Training",
+    "provider": "Amazon Web Services",
+    "technology": "AWS",
+    "level": "Beginner",
+    "cost": 1500.0,
+    "currency": "ZAR",
+    "duration": "4 weeks",
+    "delivery_mode": "Online",
+    "url": "https://example.com/courses/aws-cp",
+    "source": "AWS Skill Builder"
+  }
+]

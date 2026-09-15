@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Data Engineering Learnership NQF 5",
+    "company": "WeThinkCode_",
+    "type": "Learnership",
+    "location": "Cape Town / Johannesburg",
+    "description": "A 12-month learnership focusing on software development and data foundations.",
+    "requirements": "South African citizen, ages 18-35, matric certificate with core mathematics.",
+    "closing_date": "2026-10-31T23:59:59",
+    "url": "https://example.com/opps/wethinkcode-learnership",
+    "source": "Government Portal",
+    "skills": ["Python", "Git"]
+  }
+]

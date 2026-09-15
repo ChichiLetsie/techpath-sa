@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Junior Data Engineer",
+    "company": "Capitec Bank",
+    "location": "Stellenbosch / Remote",
+    "description": "Looking for an entry-level data engineer with strong Python and SQL skills to assist with ETL pipelines.",
+    "employment_type": "Full-time",
+    "experience_level": "Junior",
+    "qualification": "Relevant IT Degree or Coding Bootcamp Certificate",
+    "url": "https://example.com/jobs/capitec-data-eng",
+    "source": "Company Career Page",
+    "skills": ["Python", "SQL", "Git", "AWS"]
+  },
+  {
+    "title": "Graduate Software Developer",
+    "company": "Standard Bank",
+    "location": "Johannesburg",
+    "description": "Join our graduate intake programme. Build scalable banking applications using Java and modern cloud tools.",
+    "employment_type": "Full-time",
+    "experience_level": "Graduate",
+    "qualification": "National Diploma or Degree in Computer Science / Software Development",
+    "url": "https://example.com/jobs/standard-bank-grad",
+    "source": "LinkedIn ZA",
+    "skills": ["Java", "SQL", "Git", "Docker"]
+  }
+]

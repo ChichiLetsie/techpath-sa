@@ -1,0 +1,11 @@
+[
+  {"name": "Python", "category": "Programming"},
+  {"name": "SQL", "category": "Data"},
+  {"name": "Git", "category": "DevOps"},
+  {"name": "Linux", "category": "DevOps"},
+  {"name": "AWS", "category": "Cloud"},
+  {"name": "Docker", "category": "DevOps"},
+  {"name": "Spark", "category": "Data"},
+  {"name": "Java", "category": "Programming"},
+  {"name": "PostgreSQL", "category": "Data"}
+]
