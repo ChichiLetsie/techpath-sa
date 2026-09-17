@@ -10,3 +10,8 @@ Ensure you have Docker and Docker Compose installed.
 1. Copy environment template:
    ```bash
    cp .env.example .env
+
+RUN DOCKER CMD
+
+- docker compose down
+- docker compose up --build -d
