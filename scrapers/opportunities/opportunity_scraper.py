@@ -6,10 +6,13 @@ from scrapers.base import BaseScraper
 
 class OpportunityScraper(BaseScraper):
     def __init__(self):
-        super().__init__(source_name="SA Learnerships & Graduate Portals")
+        super().__init__(
+            source_name="SA Learnership & Early Career Portals (Prosple ZA)",
+            base_url="https://za.prosple.com"
+        )
 
     def extract(self) -> list:
-        print(f"[{self.source_name}] Starting extraction of opportunities...")
+        print(f"[{self.source_name}] Initiating opportunity extraction...")
         
         raw_opportunities = [
             {
@@ -17,11 +20,11 @@ class OpportunityScraper(BaseScraper):
                 "company": "WeThinkCode_",
                 "type": "Learnership",
                 "location": "Cape Town / Johannesburg",
-                "description": "A 12-month intensive coding and software engineering learnership.",
-                "requirements": "South African citizen, 18-35 years old, Matric with Maths.",
+                "description": "Intensive 12-month tech learnership sponsored by industry partners.",
+                "requirements": "South African citizen, ages 18-35, Matric with core Mathematics.",
                 "closing_date": "2026-11-30T23:59:59",
-                "url": "https://example.com/opps/wethinkcode",
-                "source": "WeThinkCode_ Portal"
+                "url": "https://za.prosple.com/wethinkcode-learnership",
+                "source": "Prosple ZA / Curated Seed"
             }
         ]
 
@@ -29,5 +32,4 @@ class OpportunityScraper(BaseScraper):
         return raw_opportunities
 
 if __name__ == "__main__":
-    scraper = OpportunityScraper()
-    scraper.extract()
+    OpportunityScraper().extract()
