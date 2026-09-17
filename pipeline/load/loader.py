@@ -2,8 +2,8 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-from backend.app.database.session import SessionLocal
-from backend.app.models import models
+from app.database.session import SessionLocal
+from app.models import models
 
 class DataLoader:
     @staticmethod

@@ -30,10 +30,10 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - ./backend:/app
-      - ./data:/app/data
-      - ./scrapers:/app/scrapers
-      - ./pipeline:/app/pipeline
+    - ./backend:/app
+    - ./data:/app/data
+    - ./scrapers:/app/scrapers
+    - ./pipeline:/app/pipeline
 
 volumes:
   postgres_data:
