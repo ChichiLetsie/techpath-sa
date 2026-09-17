@@ -33,6 +33,7 @@ services:
       - ./backend:/app
       - ./data:/app/data
       - ./scrapers:/app/scrapers
+      - ./pipeline:/app/pipeline
 
 volumes:
   postgres_data:
