@@ -4,7 +4,7 @@ import os
 # Ensure project root is in path for local execution
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-from scrapers.base_scraper import BaseScraper
+from scrapers.base import BaseScraper
 
 class JobScraper(BaseScraper):
     def __init__(self):
