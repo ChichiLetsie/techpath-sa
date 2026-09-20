@@ -34,6 +34,7 @@ services:
     - ./data:/app/data
     - ./scrapers:/app/scrapers
     - ./pipeline:/app/pipeline
+    - ./frontend:/app/frontend
 
 volumes:
   postgres_data:
