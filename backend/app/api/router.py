@@ -101,23 +101,14 @@ def get_analytics_trends():
         "message": "Trend analysis requires additional historical accumulation over time. Data collection active."
     }
 
-@router.get("/recommendations", summary="Career readiness & next move recommendations")
-def get_recommendations(career_name: str = "Data Engineer", user_skills: str = "Python,SQL"):
-    user_skill_set = {s.strip().title() for s in user_skills.split(",")}
-    career_requirements = {"Python", "SQL", "Git", "Linux", "AWS", "Docker", "Spark"}
-    
-    matched = user_skill_set.intersection(career_requirements)
-    missing = career_requirements.difference(user_skill_set)
-    score = round((len(matched) / len(career_requirements)) * 100, 1)
+from app.services.career_intelligence import CareerIntelligenceService
 
-    return {
-        "target_career": career_name,
-        "readiness_score_percentage": score,
-        "matched_skills": list(matched),
-        "missing_skills": list(missing),
-        "your_next_move": [
-            f"Complete a practical course in {next(iter(missing))}" if missing else "You match all core requirements! Apply for junior roles.",
-            "Build an end-to-end portfolio project showcasing these tools.",
-            "Review active South African graduate opportunities matching your profile."
-        ]
-    }
+@router.get("/recommendations", summary="Career readiness & next move recommendations")
+def get_recommendations(career_name: str = "Data Engineer", user_skills: str = "Python,SQL", db: Session = Depends(get_db)):
+    skills_list = [s.strip() for s in user_skills.split(",") if s.strip()]
+    return CareerIntelligenceService.calculate_readiness(db, career_name, skills_list)
+
+@router.get("/recommendations/opportunities", summary="Match user skills against available opportunities")
+def get_opportunity_matches(user_skills: str = "Python,SQL", db: Session = Depends(get_db)):
+    skills_list = [s.strip() for s in user_skills.split(",") if s.strip()]
+    return CareerIntelligenceService.match_opportunities(db, skills_list)
