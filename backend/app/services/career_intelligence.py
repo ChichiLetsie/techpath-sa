@@ -4,23 +4,27 @@ from app.models import models
 class CareerIntelligenceService:
     @staticmethod
     def calculate_readiness(db: Session, career_name: str, user_skills: list[str]):
-        # Fetch target career from DB
         career = db.query(models.Career).filter(models.Career.name.ilike(career_name)).first()
         if not career:
-            # Fallback definition if unseeded
             required_skills = {"Python", "SQL", "Git", "Linux", "AWS", "Docker", "Spark"}
         else:
             required_skills = {s.name for s in career.skills}
 
-        user_skill_set = {s.strip().title() for s in user_skills}
+        # Normalize both sets to lowercase for robust comparison
+        required_lower = {s.lower(): s for s in required_skills}
+        user_lower = {s.strip().lower() for s in user_skills}
         
-        matched = user_skill_set.intersection(required_skills)
-        missing = required_skills.difference(user_skill_set)
+        matched_lower = user_lower.intersection(required_lower.keys())
+        missing_lower = set(required_lower.keys()).difference(user_lower)
+        
+        # Map back to original casing for display
+        matched = {required_lower[s] for s in matched_lower}
+        missing = {required_lower[s] for s in missing_lower}
         
         total_required = len(required_skills) if required_skills else 1
-        score = round((len(matched) / total_required) * 100, 1)
+        matched_count = len(matched)
+        score = round((matched_count / total_required) * 100, 1)
 
-        # Generate "Your Next Move" actions
         next_moves = []
         if missing:
             next_move_skill = next(iter(missing))
@@ -71,3 +75,4 @@ class CareerIntelligenceService:
         # Sort by highest match percentage
         matches.sort(key=lambda x: x["match_percentage"], reverse=True)
         return matches
+    
