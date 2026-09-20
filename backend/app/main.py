@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.api import health
+from app.api import health, router
 
 app = FastAPI(
     title="TechPath SA API",
@@ -7,7 +7,8 @@ app = FastAPI(
     version="0.1.0"
 )
 
-app.include_router(health.api_router if hasattr(health, 'api_router') else health.router, prefix="/api")
+app.include_router(health.router, prefix="/api")
+app.include_router(router.router)  # router.py already has prefix="/api" defined internally
 
 @app.get("/")
 def root():
