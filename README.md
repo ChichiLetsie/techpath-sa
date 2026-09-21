@@ -15,3 +15,5 @@ RUN DOCKER CMD
 
 - docker compose down
 - docker compose up --build -d
+
+- docker exec -it -e PYTHONPATH=/app techpath_backend pytest
