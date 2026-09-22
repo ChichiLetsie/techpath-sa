@@ -9,6 +9,8 @@ from pipeline.transform.transformer import DataTransformer
 from pipeline.validation.schemas import ValidatedJob, ValidatedOpportunity
 from pipeline.load.loader import DataLoader
 
+from scrapers.jobs.live_job_scraper import LiveJobScraper
+
 def run_complete_pipeline():
     print("==================================================")
     print("🚀 Starting TechPath SA Data Engineering Pipeline")
@@ -21,9 +23,15 @@ def run_complete_pipeline():
 
     try:
         print("\n--- Phase 1: Extract ---")
-        raw_jobs = JobScraper().extract()
+        raw_jobs = LiveJobScraper().extract()
+        #raw_jobs = JobScraper().extract()
+        if not raw_jobs:
+            # Fallback to secondary source if live API throttles
+            raw_jobs = JobScraper().extract()
     except Exception as e:
-        print(f"❌ Job extraction failed (isolated): {e}")
+        print(f"❌ Live job extraction failed, falling back: {e}")
+        raw_jobs = JobScraper().extract()
+        #print(f"❌ Job extraction failed (isolated): {e}")
 
     try:
         raw_opps = OpportunityScraper().extract()
